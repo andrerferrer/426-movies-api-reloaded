@@ -1,4 +1,5 @@
 const list = document.querySelector('#results');
+const form = document.querySelector('#search-form');
 
 const insertMovies = (data) => {
   data.Search.forEach((result) => {
@@ -17,7 +18,6 @@ const fetchMovies = (query) => {
 };
 
 
-const form = document.querySelector('#search-form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   list.innerHTML = '';
