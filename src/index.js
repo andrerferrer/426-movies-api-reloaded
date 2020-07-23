@@ -1,13 +1,16 @@
+// SELECT ELEMENTS //
 const list = document.querySelector('#results');
 const form = document.querySelector('#search-form');
 
+// DECLARE FUNCTIONS //
 const insertMovies = (data) => {
-  data.Search.forEach((result) => {
-    const movie = `<li>
-      <img src="${result.Poster}" alt="" />
-      <p>${result.Title}</p>
+  const movies = data.Search;
+  movies.forEach((movie) => {
+    const movieHTML = `<li>
+      <img src="${movie.Poster}" alt="" />
+      <p>${movie.Title}</p>
     </li>`;
-    list.insertAdjacentHTML('beforeend', movie);
+    list.insertAdjacentHTML('beforeend', movieHTML);
   });
 };
 
@@ -17,7 +20,7 @@ const fetchMovies = (query) => {
     .then(insertMovies);
 };
 
-
+// EVENT LISTENERS && FUNCTION CALLS //
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   list.innerHTML = '';
